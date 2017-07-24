@@ -1,0 +1,456 @@
+<html class="mac center-headings" style="padding-top: 44px; padding-bottom: 44px;"><head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" async="" src="modules/master.js"></script>
+    <link rel="stylesheet" media="all" href="modules/main.css">
+
+    <!-- Flow chart support -->
+    <script type="text/javascript" src="modules/raphael/raphael.min.js"></script>
+    <script type="text/javascript" src="modules/flowchart/flowchart.min.js"></script>
+
+    <!-- Github flavored markdown theme  -->
+    <link rel="stylesheet" media="all" href="modules/github-markdown/github.css">
+
+    <!-- Highlight.js  -->
+    <link rel="stylesheet" media="all" href="modules/highlight/theme/atom-one-light.css">
+    <script type="text/javascript" src="modules/highlight/highlight.pack.js"></script>
+
+    <!-- Math expression  -->
+    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({jax: ["input/TeX","output/NativeMML"], showMathMenu: false, skipStartupTypeset: true, messageStyle: "none"})
+    </script>
+
+    <!-- sequence chart support -->
+    <script type="text/javascript" src="modules/webfontloader/webfontloader.js"></script>
+    <script type="text/javascript" src="modules/snap.svg/snap.svg-min.js"></script>
+    <script type="text/javascript" src="modules/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="modules/sequencechart/sequence-diagram-min.js"></script>
+    <link rel="stylesheet" media="all" href="modules/sequencechart/sequence-diagram-min.css">
+
+
+    <!--Custom print  -->
+    <script type="text/javascript" src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <link rel="stylesheet" media="all" href="https://printjs-4de6.kxcdn.com/print.min.css">
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body class="markdown-body" data-document=""><div id="MathJax_Message" style="display: none;"></div><h1 id="installation-documents">Installation Documents</h1><div class="TOC">
+
+
+<ul>
+<li><a href="#installation-documents">Installation Documents</a>
+
+<ul>
+<li><a href="#virtual-machine-related">Virtual Machine Related</a>
+
+<ul>
+<li><a href="#create-virtual-machines">Create Virtual Machines</a></li>
+<li><a href="#linux-configuration">Linux Configuration</a>
+
+<ul>
+<li><a href="#enable-dhcp">Enable DHCP</a></li>
+<li><a href="#disable-selinux-and-firefall">Disable SeLinux and Firefall</a></li>
+<li><a href="#install-vmware-tools">Install VMware tools</a></li>
+<li><a href="#install-docker">Install Docker</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#zabbix-server-installation">Zabbix Server Installation</a>
+
+<ul>
+<li><a href="#environment">Environment</a>
+
+<ul>
+<li><a href="#step-1-repository-configuration-package">Step 1 - Repository Configuration Package</a></li>
+<li><a href="#step-2-mysql">Step 2 - MySQL</a></li>
+<li><a href="#step-3-php-environment">Step 3 - PHP Environment</a></li>
+</ul></li>
+<li><a href="#installing-zabbix-server">Installing Zabbix Server</a>
+
+<ul>
+<li><a href="#step-1-installing-mysql-version-zabbix-server">Step 1 - Installing MySQL Version Zabbix Server</a></li>
+<li><a href="#step-2-creating-initial-database-for-zabbix-server">Step 2 - Creating Initial Database for Zabbix Server</a></li>
+<li><a href="#step-3-database-configuration-for-zabbix-server">Step 3 - Database Configuration for Zabbix Server</a></li>
+<li><a href="#step-4-starting-zabbix-server">Step 4 - Starting Zabbix Server</a></li>
+<li><a href="#step-5-php-configuration-for-zabbix-frontend">Step 5 - PHP Configuration for Zabbix frontend</a></li>
+<li><a href="#step-6-installing-web-frontend">Step 6 - Installing Web Frontend</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dockerized-zabbix-agent-installation">Dockerized Zabbix Agent Installation</a></li>
+</ul></li>
+</ul>
+</div>
+
+<h2 id="virtual-machine-related">Virtual Machine Related</h2>
+
+<h3 id="create-virtual-machines">Create Virtual Machines</h3>
+
+<ol>
+<li>Create a virtual machine with default configuration</li>
+<li>Install CentOS 7</li>
+</ol>
+
+<h3 id="linux-configuration">Linux Configuration</h3>
+
+<h4 id="enable-dhcp">Enable DHCP</h4>
+
+<p>By default, the configuration file is:</p>
+
+<pre><code class="shell hljs">/etc/sysconfig/network-scritps/ifcfg-ens160
+</code></pre>
+
+<p>However, the file name <code>ifcfg-ens160</code> may vary depends on network interface name. </p>
+
+<ul>
+<li>Find the below lines in config file
+<code>shell
+BOOTPROTO=none
+ONBOOT=no
+</code>
+and replace with</li>
+</ul>
+
+<pre><code class="shell hljs">BOOTPROTO=dhcp
+ONBOOT=yes
+</code></pre>
+
+<ul>
+<li>Restart network service with the following command.</li>
+</ul>
+
+<pre><code class="shell hljs">systemctl restart network 
+</code></pre>
+
+<ul>
+<li>Now check your IP address and record it for future use.</li>
+</ul>
+
+<pre><code class="shell hljs">ip addr 
+<span class="hljs-meta">
+#</span><span class="bash"> or</span>
+
+ifconfig 
+</code></pre>
+
+<h4 id="disable-selinux-and-firefall">Disable SeLinux and Firefall</h4>
+
+<p>Although SeLinux and firewall provide excellent permission and security management, they could be obstacles of development. Permission and security setting should also take other applications into consideration, so we disable them in development environment for convenience. </p>
+
+<ol>
+<li>Disable SeLinux</li>
+</ol>
+
+<pre><code class="shell hljs">vim /etc/selinux/config
+<span class="hljs-meta">
+#</span><span class="bash"> This file controls the state of SELinux on the system.</span>
+<span class="hljs-meta">#</span><span class="bash"> SELINUX= can take one of these three values:</span>
+<span class="hljs-meta">#</span><span class="bash">     enforcing - SELinux security policy is enforced.</span>
+<span class="hljs-meta">#</span><span class="bash">     permissive - SELinux prints warnings instead of enforcing.</span>
+<span class="hljs-meta">#</span><span class="bash">     disabled - No SELinux policy is loaded.</span>
+SELINUX=disabled
+<span class="hljs-meta">#</span><span class="bash"> SELINUXTYPE= can take one of three two values:</span>
+<span class="hljs-meta">#</span><span class="bash">     targeted - Targeted processes are protected,</span>
+<span class="hljs-meta">#</span><span class="bash">     minimum - Modification of targeted policy. Only selected processes are protected.</span>
+<span class="hljs-meta">#</span><span class="bash">     mls - Multi Level Security protection.</span>
+SELINUXTYPE=targeted
+
+</code></pre>
+
+<p>change <code>SELINUX</code> variable to <code>disable</code>. This change need a <strong>reboot</strong> to take effect. </p>
+
+<h4 id="install-vmware-tools">Install VMware tools</h4>
+
+<p>Vmware tools provides APIs for virtual machine infrastructure to interact with virtual machines. This could be useful for development and debugging. </p>
+
+<pre><code class="shell hljs">yum install open-vm-tools
+</code></pre>
+
+<p><strong>Reboot</strong> the virtual machine to enable the VMware Tools integration. </p>
+
+<h4 id="install-docker">Install Docker</h4>
+
+<ul>
+<li>Install Docker</li>
+</ul>
+
+<pre><code class="shell hljs">yum install docker 
+</code></pre>
+
+<ul>
+<li>Run Docker service</li>
+</ul>
+
+<pre><code class="shell hljs">systemctl start docker 
+</code></pre>
+
+<p>Now the development environment is ready, enjoy yourself. </p>
+
+<h2 id="zabbix-server-installation">Zabbix Server Installation</h2>
+
+<p>Zabbix Server is a headquarter of the whole monitoring system. Concretely, Zabbix Server does everything except collecting raw data from hosts directly. </p>
+
+<p>Zabbix Server comprises server side and a web front end, so we need to set them up individually. </p>
+
+<h3 id="environment">Environment</h3>
+
+<h4 id="step-1-repository-configuration-package">Step 1 - Repository Configuration Package</h4>
+
+<p>As Zabbix Server is not included in the repository of CentOS 7 by default. We need to install it manually by running the following command. </p>
+
+<pre><code class="shell hljs">rpm -ivh http://repo.zabbix.com/zabbix/3.2/rhel/7/x86_64/zabbix-release-3.2-1.el7.noarch.rpm
+</code></pre>
+
+<h4 id="step-2-mysql">Step 2 - MySQL</h4>
+
+<p>Zabbix Server stores data in various kinds of databases, we use MySQL/MariaDB here as an example, so make sure MySQL Server is correctly installed. </p>
+
+<pre><code class="shell hljs">yum install mariadb-server
+</code></pre>
+
+<p>Once installation is complete, start the daemon and enable auto start on boot by running the following commands.</p>
+
+<pre><code class="shell hljs">systemctl start mariadb &amp;&amp; systemctl enable mariadb 
+</code></pre>
+
+<p>Securing the MariaDB Server </p>
+
+<pre><code class="shell hljs">mysql_secure_installation
+</code></pre>
+
+<p><strong>1</strong>: Press [Enter] as we haven’t got a root password for the new installation. </p>
+
+<figure>
+<img src="file:///Users/arith/Library/Mobile%20Documents/27N4MQEA55~pro~writer/Documents/Learning/Master%20Project/subtopics/assets/mysql-1.png?md5=274da7da981f4b64eed015567d4eb901" alt="">
+</figure>
+
+<p><strong>2</strong>: Input <strong>y</strong> to create a new root password. </p>
+
+<figure>
+<img src="file:///Users/arith/Library/Mobile%20Documents/27N4MQEA55~pro~writer/Documents/Learning/Master%20Project/subtopics/assets/mysql-2.png?md5=545fd9329c411d4b2e6c21e26d40568e" alt="">
+</figure>
+
+<p><strong>3</strong>: Input <strong>y</strong> to remove anonymous user, disallow root login, remove test database and reload privilege tables. </p>
+
+<p>Here screenshots are omitted for space saving. </p>
+
+<h4 id="step-3-php-environment">Step 3 - PHP Environment</h4>
+
+<p>Install Apache Httpd: </p>
+
+<pre><code class="shell hljs">yum install httpd
+</code></pre>
+
+<p>Install PHP and PHP Mysql plugin </p>
+
+<pre><code class="shell hljs">yum install php php-mysql
+</code></pre>
+
+<h3 id="installing-zabbix-server">Installing Zabbix Server</h3>
+
+<h4 id="step-1-installing-mysql-version-zabbix-server">Step 1 - Installing MySQL Version Zabbix Server</h4>
+
+<pre><code class="shell hljs">yum install zabbix-server-mysql zabbix-web-mysql
+</code></pre>
+
+<h4 id="step-2-creating-initial-database-for-zabbix-server">Step 2 - Creating Initial Database for Zabbix Server</h4>
+
+<pre><code class="shell hljs"><span class="hljs-meta">#</span><span class="bash"> root password <span class="hljs-keyword">in</span> the development environment is `zabbix-wadaro` without quotation. </span>
+mysql -u root -p 
+</code></pre>
+
+<p>Now we are in the mysql shell </p>
+
+<pre><code class="mysql hljs shell"><span class="hljs-meta">mysql&gt;</span><span class="bash"> create database zabbix character <span class="hljs-built_in">set</span> utf8 collate utf8_bin;</span>
+<span class="hljs-meta">mysql&gt;</span><span class="bash"> grant all privileges on zabbix.* to zabbix@localhost identified by <span class="hljs-string">'zabbix-wadaro'</span>;</span>
+<span class="hljs-meta">mysql&gt;</span><span class="bash"> quit;</span>
+</code></pre>
+
+<p>Check your Zabbix <code>patch version</code>, which seems like <code>3.2.*</code>. The <code>*</code> is the patch version. </p>
+
+<pre><code class="shell hljs">rpm -q zabbix-server-mysql
+<span class="hljs-meta">
+#</span><span class="bash"> output: </span>
+zabbix-server-mysql-3.2.6-1.el7.x86_64
+<span class="hljs-meta">
+#</span><span class="bash"> So the patch version is 6. </span>
+</code></pre>
+
+<p>Import initial schema and data</p>
+
+<pre><code class="shell hljs">zcat /usr/share/doc/zabbix-server-mysql-3.2.[PATCH VERSION]/create.sql.gz | mysql -uzabbix -p zabbix
+<span class="hljs-meta">
+#</span><span class="bash"> An example is </span>
+zcat /usr/share/doc/zabbix-server-mysql-3.2.6/create.sql.gz | mysql -uzabbix -p zabbix
+</code></pre>
+
+<h4 id="step-3-database-configuration-for-zabbix-server">Step 3 - Database Configuration for Zabbix Server</h4>
+
+<p>Change DB Configuration in Zabbix Server config file. </p>
+
+<pre><code class="shell hljs">vi /etc/zabbix/zabbix_server.conf
+<span class="hljs-meta">
+#</span><span class="bash"><span class="hljs-comment"># Change the follow keys </span></span>
+DBHost=localhost
+DBName=zabbix
+DBUser=zabbix
+DBPassword=zabbix-wadaro
+</code></pre>
+
+<h4 id="step-4-starting-zabbix-server">Step 4 - Starting Zabbix Server</h4>
+
+<pre><code class="shell hljs">systemctl start zabbix-server
+systemctl enable zabbix-server
+</code></pre>
+
+<h4 id="step-5-php-configuration-for-zabbix-frontend">Step 5 - PHP Configuration for Zabbix frontend</h4>
+
+<p>The detailed configuration should fit the requirements of your own environments, such as upload limits and max input time.</p>
+
+<p>Make sure that the time zone is correctly configured. </p>
+
+<pre><code class="shell hljs">vim  /etc/httpd/conf.d/zabbix.conf
+</code></pre>
+
+<p>Change the time zone to UTC. </p>
+
+<pre><code class="shell hljs">php_value max_execution_time 300
+php_value memory_limit 128M
+php_value post_max_size 16M
+php_value upload_max_filesize 2M
+php_value max_input_time 300
+php_value always_populate_raw_post_data -1
+<span class="hljs-meta">#</span><span class="bash"> php_value date.timezone Europe/Riga</span>
+<span class="hljs-meta">
+#</span><span class="bash"><span class="hljs-comment"># change the below line to UTC </span></span>
+php_value date.timezone UTC
+</code></pre>
+
+<p>Starting apache2 server.</p>
+
+<pre><code class="shell hljs">systemctl start httpd
+</code></pre>
+
+<h4 id="step-6-installing-web-frontend">Step 6 - Installing Web Frontend</h4>
+
+<p>This step is fairly straightforward, just follow the installation guide. The only thing need to do is to input the password. </p>
+
+<p>An official guide is here for reference: <a href="https://www.zabbix.com/documentation/3.2/manual/installation/install#installing_frontend">Link</a></p>
+
+<h2 id="dockerized-zabbix-agent-installation">Dockerized Zabbix Agent Installation</h2>
+
+<p>This part only presents how to setup the dockerized Zabbix Agent. </p>
+
+<p>Once finished the installation of virtual machines and installation of Docker, run the follow command.</p>
+
+<pre><code class="shell hljs">docker run --name [NAME] -e ZBX_PASSIVESERVERS="[Zabbix Server IP]" -e ZBX_HOSTNAME="[HOST_NAME]" -e ZBX_SERVER_HOST="[Zabbix Server Address]" --privileged -d -p 10050:10050 zabbix/zabbix-agent:ubuntu-3.2.6
+</code></pre>
+
+<p>An concrete example is also provided:</p>
+
+<pre><code class="shell hljs">docker run --name tcc -e ZBX_PASSIVESERVERS="10.3.100.107" -e ZBX_HOSTNAME="TCC" -e ZBX_SERVER_HOST="10.3.100.107" --privileged -d -p 10050:10050 zabbix/zabbix-agent:ubuntu-3.2.6
+</code></pre>
+
+<p>Following is a list of description of each parameters. </p>
+
+<ol>
+<li>[NAME]: a string character to description the Docker container</li>
+<li>[Zabbix Server IP]: Domain name or IP address of a Zabbix Server</li>
+<li>[HOST_NAME]: A string that names current Agent. When adding this Agent in the Zabbix web interface, you should put the same string as stated here.</li>
+</ol>
+
+<p>A ‘verbose’ version of how to install the agent without docker will be updated in the following days. </p></body></html>
