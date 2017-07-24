@@ -135,11 +135,11 @@ mysql_secure_installation
 
 **1**: Press [Enter] as we haven’t got a root password for the new installation. 
 
-![](subtopics/assets/mysql-1.png)
+![](assets/mysql-1.png)
 
 **2**: Input **y** to create a new root password. 
 
-![](subtopics/assets/mysql-2.png)
+![](assets/mysql-2.png)
 
 **3**: Input **y** to remove anonymous user, disallow root login, remove test database and reload privilege tables. 
 
